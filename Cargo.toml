@@ -1,0 +1,13 @@
+[package]
+name = "dropthe"
+version = "0.1.0"
+edition = "2021"
+authors = ["Arnaud Leroy <dropthehq@gmail.com>"]
+description = "Rust client for DropThe open data. Access movies, series, crypto, companies."
+homepage = "https://dropthe.org"
+repository = "https://github.com/arnaudleroy-studio/dropthe-rust"
+documentation = "https://dropthe.org/data/"
+license = "MIT"
+keywords = ["movies", "data"]
+categories = ["data-structures"]
+readme = "README.md"
