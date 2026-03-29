@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dropthe-rust - Rust crate for DropThe open data platform. Type-safe async access to 1.83M entities and the knowledge graph.</title>
+    <meta name="description" content="Rust crate for DropThe open data platform. Type-safe async access to 1.83M entities and the knowledge graph.">
+    <meta property="og:title" content="dropthe-rust Documentation">
+    <meta property="og:description" content="Rust crate for DropThe open data platform. Type-safe async access to 1.83M entities and the knowledge graph.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arnaudleroy-studio.github.io/dropthe-rust/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="dropthe-rust Documentation">
+    <meta name="twitter:description" content="Rust crate for DropThe open data platform. Type-safe async access to 1.83M entities and the knowledge graph.">
+    <link rel="canonical" href="https://arnaudleroy-studio.github.io/dropthe-rust/">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a0a00 0%, #2d1200 50%, #1a0a00 100%);
+            color: #e0e0e0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        .header {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .lang-badge {
+            display: inline-block;
+            background: #F74C00;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .tagline {
+            font-size: 1.1rem;
+            color: #999;
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 40px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        h2 .accent {
+            color: #F74C00;
+        }
+        p {
+            margin-bottom: 16px;
+            color: #bbb;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            padding: 20px 24px;
+            overflow-x: auto;
+            margin: 16px 0 24px;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+        code {
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', Menlo, Consolas, monospace;
+            color: #d4d4d4;
+        }
+        .kw { color: #F74C00; font-weight: 600; }
+        .str { color: #98c379; }
+        .cmt { color: #5c6370; font-style: italic; }
+        .fn { color: #61afef; }
+        .attr { color: #c678dd; }
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 16px 0 24px;
+            list-style: none;
+        }
+        .features li {
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        .features li::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #F74C00;
+            border-radius: 50%;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .api-method {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 12px 0;
+        }
+        .api-method code {
+            font-size: 0.85rem;
+            color: #fff;
+        }
+        .api-method p {
+            margin: 8px 0 0;
+            font-size: 0.88rem;
+            color: #888;
+        }
+        .method-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 2px 8px;
+            border-radius: 3px;
+            color: #fff;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+            .method-badge.async { background: #F74C00; }
+            .method-badge.func { background: #B7410E; }
+
+        .footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .footer a {
+            color: #777;
+        }
+        .req {
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 32px 16px; }
+            h1 { font-size: 1.6rem; }
+            .features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <span class="lang-badge">Rust</span>
+            <h1>dropthe-rust</h1>
+            <p class="tagline">Rust crate for DropThe open data platform. Type-safe async access to 1.83M entities and the knowledge graph.</p>
+        </header>
+
+        <section>
+            <h2>About <span class="accent">DropThe</span></h2>
+            <p>
+                This library provides idiomatic Rust bindings for the
+                <a href="https://dropthe.org">DropThe</a> open data API. DropThe is a
+                data utility media network that aggregates and structures information across
+                entertainment, finance, and technology.
+            </p>
+            <p>
+                The <a href="https://dropthe.org">DropThe platform</a> maintains a knowledge graph
+                of 1.83 million entities with 2.9 million typed relationships, covering movies,
+                TV series, cryptocurrencies, public companies, and notable people. This Rust
+                library provides full access to search, entity retrieval, and graph traversal.
+            </p>
+        </section>
+
+        <section>
+            <h2><span class="accent">#</span> Installation</h2>
+            <span class="req">Rust 1.70+ (2021 edition)</span>
+            <pre><code><span class="cmt"># Add to Cargo.toml</span>
+[dependencies]
+dropthe = <span class="str">"0.1"</span>
+tokio = { version = <span class="str">"1"</span>, features = [<span class="str">"full"</span>] }
+
+<span class="cmt"># Or via cargo</span>
+cargo add dropthe</code></pre>
+        </section>
+
+        <section>
+            <h2><span class="accent">#</span> Quick Start</h2>
+            <pre><code><span class="kw">use</span> dropthe::{Client, EntityType};
+
+<span class="attr">#[tokio::main]</span>
+<span class="kw">async fn</span> <span class="fn">main</span>() -> Result&lt;(), Box&lt;<span class="kw">dyn</span> std::error::Error&gt;&gt; {
+    <span class="kw">let</span> client = Client::<span class="fn">new</span>(<span class="str">"your-api-key"</span>);
+
+    <span class="cmt">// Search the 1.83M entity database</span>
+    <span class="kw">let</span> results = client
+        .<span class="fn">search</span>(<span class="str">"Inception"</span>)
+        .<span class="kw">await</span>?;
+
+    <span class="kw">for</span> entity <span class="kw">in</span> &results {
+        <span class="fn">println!</span>(<span class="str">"{} ({})"</span>, entity.name, entity.entity_type);
+    }
+
+    <span class="cmt">// Filter by type with pagination</span>
+    <span class="kw">let</span> movies = client
+        .<span class="fn">list_by_type</span>(EntityType::Movies)
+        .<span class="fn">limit</span>(25)
+        .<span class="fn">offset</span>(0)
+        .<span class="fn">send</span>()
+        .<span class="kw">await</span>?;
+
+    <span class="fn">println!</span>(<span class="str">"Found {} movies"</span>, movies.<span class="fn">len</span>());
+    Ok(())
+}</code></pre>
+        </section>
+
+        <section>
+            <h2><span class="accent">#</span> Features</h2>
+            <ul class="features">
+                    <li>Fully async with tokio, zero-copy deserialization</li>
+                    <li>Movies & series metadata</li>
+                    <li>Cryptocurrency tracking</li>
+                    <li>Company profiles</li>
+                    <li>People database</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="accent">#</span> API Reference</h2>
+            
+            <div class="api-method">
+                <span class="method-badge async">ASYNC</span>
+                <code>client.search(query: &str) -> Result&lt;Vec&lt;Entity&gt;&gt;</code>
+                <p>Full-text search across all entity types in the DropThe knowledge graph.</p>
+            </div>
+            <div class="api-method">
+                <span class="method-badge async">ASYNC</span>
+                <code>client.get_entity(slug: &str) -> Result&lt;Entity&gt;</code>
+                <p>Fetch a single entity with full metadata, data fields, and graph relationships.</p>
+            </div>
+            <div class="api-method">
+                <span class="method-badge async">ASYNC</span>
+                <code>client.list_by_type(entity_type: EntityType) -> QueryBuilder</code>
+                <p>Build a filtered query for movies, series, people, companies, or cryptocurrencies.</p>
+            </div>
+            <div class="api-method">
+                <span class="method-badge async">ASYNC</span>
+                <code>client.get_links(entity_id: &str) -> Result&lt;Vec&lt;EntityLink&gt;&gt;</code>
+                <p>Traverse the knowledge graph to find related entities via typed relationships.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>
+                <a href="https://github.com/arnaudleroy-studio/dropthe-rust">Source on GitHub</a>
+                &middot;
+                <a href="https://arnaudleroy-studio.github.io/">Arnaud Leroy Studio</a>
+                &middot;
+                <a href="https://dropthe.org">dropthe.org</a>
+            </p>
+            <p style="margin-top: 8px;">MIT License &middot; &copy; 2026 Arnaud Leroy Studio</p>
+        </footer>
+    </div>
+</body>
+</html>
