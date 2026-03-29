@@ -1,6 +1,6 @@
 [package]
 name = "dropthe"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["Arnaud Leroy <dropthehq@gmail.com>"]
 description = "Rust client for DropThe open data. Access movies, series, crypto, companies."
